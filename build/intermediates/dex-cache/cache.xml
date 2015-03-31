@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/classes-d7d335d5d467247fc9b972bfe1fd6d2d3b9ec74d.jar" />
+    </item>
+    <item
+        jar="/home/marcus/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/javax.inject-1-82c2be29dd5ec15f5d7364be886af0c9e0edfbbc.jar" />
+    </item>
+    <item
+        jar="/home/marcus/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.2/e8f912ee19ad84958510883ea191135276b091f8/dagger-1.2.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e8f912ee19ad84958510883ea191135276b091f8">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/dagger-1.2.2-ec595e3f8355647238b8aa9faf3352a4de3c8f90.jar" />
+    </item>
+    <item
+        jar="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/classes-0c0cf608b5eefe38de160fb3be02783b0e03d21e.jar" />
+    </item>
+    <item
+        jar="/home/marcus/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-c63c13de01bcb9887834a51f2bebe6bb512f078f.jar" />
+    </item>
+    <item
+        jar="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/home/marcus/Documents/simple-dagger-test/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-0980616400d4aa0cee788a4afc99aed6152e9c16.jar" />
+    </item>
+
+</items>
