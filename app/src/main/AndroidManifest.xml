@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="to.marcus.simple_dagger_test">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application android:allowBackup="true" android:label="@string/app_name"
         android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme"
-        android:name=".DemoApplication">
+        android:name=".BaseApplication">
         <activity
             android:label="@string/app_name"
             android:name=".ui.HomeActivity">
