@@ -1,6 +1,5 @@
 package to.marcus.simple_dagger_test.network;
 
-import android.app.Activity;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,12 +11,6 @@ import java.net.URL;
  * To open an HTTP Connection for working with request methods
  */
 public class WebConnection {
-
-    private Activity activity;
-
-    public WebConnection(Activity activity){
-        this.activity = activity;
-    }
 
     private byte[] getUrlBytes(String urlStr) throws IOException{
         URL url = new URL(urlStr);

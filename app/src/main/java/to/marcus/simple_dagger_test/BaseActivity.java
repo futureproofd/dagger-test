@@ -6,9 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 import dagger.ObjectGraph;
 import to.marcus.simple_dagger_test.modules.ActivityModule;
+import to.marcus.simple_dagger_test.modules.ConnectionModule;
 
 /**
- * Created by marcus on 23/03/15.
+ * Created by marcus on 23/03/15
  */
 public abstract class BaseActivity extends FragmentActivity {
     private ObjectGraph activityGraph;
@@ -32,7 +33,8 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     protected List<Object> getModules(){
-        return Arrays.<Object>asList(new ActivityModule(this));
+        return Arrays.<Object>asList(new ActivityModule(this),
+                new ConnectionModule());
     }
 
     //inject the supplied object using the activity-specific graph

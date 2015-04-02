@@ -21,7 +21,9 @@ import to.marcus.simple_dagger_test.ui.HomeFragment;
                 HomeActivity.class,
                 HomeFragment.class
         },
-        addsTo = ApplicationModule.class,
+        includes ={
+          ConnectionModule.class
+        },
         library = true
 )
 public class ActivityModule {
@@ -40,15 +42,9 @@ public class ActivityModule {
         return activity;
     }
 
-
     @Provides @Singleton
     ActivityTitleController provideTitleController(){
         return new ActivityTitleController(activity);
-    }
-
-    @Provides @Singleton
-    WebConnection provideHTTPConnection(){
-        return new WebConnection(activity);
     }
 
 }

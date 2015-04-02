@@ -8,7 +8,6 @@ import dagger.Module;
 import dagger.Provides;
 import to.marcus.simple_dagger_test.BaseApplication;
 import to.marcus.simple_dagger_test.ForApplication;
-import to.marcus.simple_dagger_test.network.WebConnection;
 
 /**
  * A module for Android-specific dependencies which require a {@link Context} or

@@ -5,13 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import javax.inject.Inject;
-
 import to.marcus.simple_dagger_test.BaseFragment;
 
+
 /**
- * Created by marcus on 31/03/15.
+ * Created by marcus on 31/03/15!
  */
 public class HomeFragment extends BaseFragment{
     public static HomeFragment newInstance(){
@@ -30,9 +29,7 @@ public class HomeFragment extends BaseFragment{
 
     @Override public void onResume(){
         super.onResume();
-
         titleController.setTitle("Home Fragment");
     }
-
 
 }

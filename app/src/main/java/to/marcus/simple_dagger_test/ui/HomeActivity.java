@@ -4,7 +4,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import javax.inject.Inject;
 import to.marcus.simple_dagger_test.BaseActivity;
-import to.marcus.simple_dagger_test.network.WebConnection;
+import to.marcus.simple_dagger_test.network.GetWebTask;
 
 /**
  * Created by marcus on 23/03/15.
@@ -13,7 +13,7 @@ public class HomeActivity extends BaseActivity {
     @Inject
     LocationManager locationManager;
     @Inject
-    WebConnection httpWebConnection;
+    GetWebTask httpTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -26,5 +26,6 @@ public class HomeActivity extends BaseActivity {
                     .add(android.R.id.content, HomeFragment.newInstance())
                     .commit();
         }
+        httpTask.execute();
     }
 }
