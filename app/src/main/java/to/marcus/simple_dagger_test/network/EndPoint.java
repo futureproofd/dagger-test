@@ -20,7 +20,7 @@ import to.marcus.simple_dagger_test.model.Image;
 public class EndPoint {
     public static final String TAG = "EndPoint";
     private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
-    private static final String API_KEY = "4b37ee018d17b1aa7cd793ede2ea7ee7";
+    private static final String API_KEY = "<your Flickr API Key>";
     private static final String GET_RECENT = "flickr.photos.getRecent";
     private static final String PARAM_EXTRAS = "extras";
     private static final String EXTRA_SMALL_URL = "urls_s";
