@@ -8,7 +8,6 @@ import android.widget.TextView;
 import javax.inject.Inject;
 import to.marcus.simple_dagger_test.BaseFragment;
 
-
 /**
  * Created by marcus on 31/03/15!
  */

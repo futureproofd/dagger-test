@@ -11,8 +11,6 @@ import to.marcus.simple_dagger_test.network.GetWebTask;
  */
 public class HomeActivity extends BaseActivity {
     @Inject
-    LocationManager locationManager;
-    @Inject
     GetWebTask httpTask;
 
     @Override
