@@ -2,15 +2,12 @@ package to.marcus.simple_dagger_test.network;
 
 import android.net.Uri;
 import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-
 import to.marcus.simple_dagger_test.model.Image;
 
 /**
@@ -20,7 +17,7 @@ import to.marcus.simple_dagger_test.model.Image;
 public class EndPoint {
     public static final String TAG = "EndPoint";
     private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
-    private static final String API_KEY = "4b37ee018d17b1aa7cd793ede2ea7ee7";
+    private static final String API_KEY = "1289371298371298371";
     private static final String GET_RECENT = "flickr.photos.getRecent";
     private static final String PARAM_EXTRAS = "extras";
     private static final String EXTRA_SMALL_URL = "urls_s";
@@ -28,11 +25,9 @@ public class EndPoint {
 
     /*
     * Get URL byte contents from URI and parse items into ArrayList
-    *
-     */
+    */
     public ArrayList<Image> getXMLContent(WebConnection httpConnection) throws IOException{
         ArrayList<Image> images = new ArrayList<Image>();
-
         try{
             String url = Uri.parse(ENDPOINT).buildUpon()
                     .appendQueryParameter("method", GET_RECENT)

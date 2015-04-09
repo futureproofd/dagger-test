@@ -23,7 +23,7 @@ public class ConnectionModule {
         return new WebConnection();
     }
 
-    @Provides
+    @Provides @Singleton
     public EndPoint provideEndPoint() {
         return new EndPoint();
     }
