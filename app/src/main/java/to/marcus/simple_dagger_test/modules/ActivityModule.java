@@ -6,6 +6,7 @@ import dagger.Module;
 import dagger.Provides;
 import to.marcus.simple_dagger_test.BaseActivity;
 import to.marcus.simple_dagger_test.ForActivity;
+import to.marcus.simple_dagger_test.model.ImageStorage;
 import to.marcus.simple_dagger_test.ui.ActivityTitleController;
 import to.marcus.simple_dagger_test.ui.HomeActivity;
 import to.marcus.simple_dagger_test.ui.HomeFragment;

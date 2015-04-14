@@ -1,7 +1,6 @@
 package to.marcus.simple_dagger_test.modules;
 
 import android.content.Context;
-import android.location.LocationManager;
 import android.view.LayoutInflater;
 import javax.inject.Singleton;
 import dagger.Module;
@@ -29,11 +28,6 @@ public class ApplicationModule {
     @Provides @Singleton @ForApplication
     Context provideApplicationContext(){
         return application;
-    }
-
-    @Provides @Singleton
-    LocationManager provideLocationManager(){
-        return (LocationManager) application.getSystemService(Context.LOCATION_SERVICE);
     }
 
     @Provides @Singleton

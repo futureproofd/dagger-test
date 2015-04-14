@@ -17,7 +17,6 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         //Create activity Graph by .plus-ing our modules onto the application graph
         BaseApplication application = (BaseApplication) getApplication();
         activityGraph = application.getApplicationGraph().plus(getModules().toArray());

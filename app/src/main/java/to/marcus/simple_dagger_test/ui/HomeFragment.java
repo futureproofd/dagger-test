@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import java.util.ArrayList;
+import javax.inject.Inject;
 import to.marcus.simple_dagger_test.BaseFragment;
 import to.marcus.simple_dagger_test.R;
 import to.marcus.simple_dagger_test.model.Image;
-import to.marcus.simple_dagger_test.network.GetWebTask;
+import to.marcus.simple_dagger_test.model.ImageStorage;
+
 
 /**
  * Created by marcus on 31/03/15!
@@ -18,35 +20,31 @@ import to.marcus.simple_dagger_test.network.GetWebTask;
 public class HomeFragment extends BaseFragment{
     GridView mGridView;
     ArrayList<Image> mImages;
-    GetWebTask httpTask;
-    //  @Inject
-    // ActivityTitleController titleController;
+    ImageStorage imageStorage;
+    @Inject
+    ActivityTitleController titleController;
 
     public static HomeFragment newInstance(){
         return new HomeFragment();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
+    @Override public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        //Not working: NPE on httpTask instance
-        //mImages = httpTask.getImages();
+        //mImages = imageStorage.getImages();
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                        Bundle savedInstanceState){
-
         View v = inflater.inflate(R.layout.fragment_grid_layout, container, false);
         mGridView = (GridView)v.findViewById(R.id.gridView);
-        setupAdapter();
+        //setupAdapter();
         return v;
     }
 
     @Override public void onResume(){
         super.onResume();
-        //titleController.setTitle("Home Fragment");
+        titleController.setTitle("Home Fragment");
     }
-
 
     public void setupAdapter(){
         if(getActivity() == null || mGridView == null) return;

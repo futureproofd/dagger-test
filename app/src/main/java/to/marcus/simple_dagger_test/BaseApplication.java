@@ -3,6 +3,9 @@ package to.marcus.simple_dagger_test;
 import android.app.Application;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.inject.Inject;
+
 import dagger.ObjectGraph;
 import to.marcus.simple_dagger_test.modules.ApplicationModule;
 

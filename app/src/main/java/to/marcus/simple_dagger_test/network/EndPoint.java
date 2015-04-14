@@ -10,6 +10,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import to.marcus.simple_dagger_test.model.Image;
 
+
 /**
  * Created by marcus on 4/6/2015.
  * Flickr API
@@ -17,11 +18,7 @@ import to.marcus.simple_dagger_test.model.Image;
 public class EndPoint {
     public static final String TAG = "EndPoint";
     private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
-<<<<<<< HEAD
-    private static final String API_KEY = "1289371298371298371";
-=======
-    private static final String API_KEY = "<your Flickr API Key>";
->>>>>>> origin/master
+    private static final String API_KEY = "4b37ee018d17b1aa7cd793ede2ea7ee7";
     private static final String GET_RECENT = "flickr.photos.getRecent";
     private static final String PARAM_EXTRAS = "extras";
     private static final String EXTRA_SMALL_URL = "urls_s";
@@ -39,7 +36,6 @@ public class EndPoint {
                     .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL)
                     .build().toString();
             String xmlString = httpConnection.getUrl(url);
-            Log.i(TAG, "Received XML: " + xmlString);
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             XmlPullParser parser = factory.newPullParser();
             parser.setInput(new StringReader(xmlString));
@@ -49,6 +45,7 @@ public class EndPoint {
         }catch (XmlPullParserException xppe){
             Log.e(TAG, "Failed to parse items", xppe);
         }
+        Log.i(TAG, "Received XML: " + images);
         return images;
     }
 
