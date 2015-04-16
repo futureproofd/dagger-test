@@ -1,30 +1,34 @@
 package to.marcus.simple_dagger_test.modules;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import to.marcus.simple_dagger_test.BaseApplication;
-import to.marcus.simple_dagger_test.ForApplication;
+import to.marcus.simple_dagger_test.event.MainBus;
+import to.marcus.simple_dagger_test.network.EndPoint;
+import to.marcus.simple_dagger_test.network.GetWebTask;
+import to.marcus.simple_dagger_test.network.WebConnection;
 
 /**
  * A module for Android-specific dependencies which require a {@link Context} or
  * {@link android.app.Application} to create.
  */
 
-@Module(library = true)
-public class ApplicationModule {
-    private final BaseApplication application;
+@Module(
+        injects = BaseApplication.class
+)
 
-    public ApplicationModule(BaseApplication application){
-        this.application = application;
+public class ApplicationModule {
+
+    public ApplicationModule() {
     }
 
-    /**allow the application context to be injected, but require that it be annotated with
-    /* {@link to.marcus.simple_dagger_test.ForApplication @Annotation} to explicitly differentiate it from an activity context.
-    */
-
+    /**
+     * allow the application context to be injected, but require that it be annotated with
+     * /* {@link to.marcus.simple_dagger_test.ForApplication @Annotation} to explicitly differentiate it from an activity context.
+     */
+/*
     @Provides @Singleton @ForApplication
     Context provideApplicationContext(){
         return application;
@@ -33,5 +37,29 @@ public class ApplicationModule {
     @Provides @Singleton
     LayoutInflater provideLayoutInflater(){
         return (LayoutInflater) application.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+*/
+    @Provides
+    @Singleton
+    public MainBus provideMainBus() {
+        return new MainBus();
+    }
+
+    @Provides
+    @Singleton
+    public WebConnection provideConnection() {
+        return new WebConnection();
+    }
+
+    @Provides
+    @Singleton
+    public EndPoint provideEndPoint() {
+        return new EndPoint();
+    }
+
+    @Provides
+    @Singleton
+    public GetWebTask provideData(WebConnection httpConnection, EndPoint endPoint, MainBus bus) {
+        return new GetWebTask(httpConnection, endPoint, bus);
     }
 }

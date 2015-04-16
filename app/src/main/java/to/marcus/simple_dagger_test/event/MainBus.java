@@ -12,6 +12,7 @@ import com.squareup.otto.Bus;
  * to know about or change the thread on which event propagation is happening. Creating a handler for
  * our AsyncTask requires this
  */
+
 public class MainBus extends Bus{
     private final Handler handler = new Handler(Looper.getMainLooper());
     private static Bus instance = null;

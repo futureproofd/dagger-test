@@ -10,7 +10,6 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import to.marcus.simple_dagger_test.model.Image;
 
-
 /**
  * Created by marcus on 4/6/2015.
  * Flickr API

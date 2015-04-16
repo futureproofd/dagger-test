@@ -12,7 +12,7 @@ import to.marcus.simple_dagger_test.BaseFragment;
 import to.marcus.simple_dagger_test.R;
 import to.marcus.simple_dagger_test.model.Image;
 import to.marcus.simple_dagger_test.model.ImageStorage;
-
+import to.marcus.simple_dagger_test.presenter.ImagePresenter;
 
 /**
  * Created by marcus on 31/03/15!
@@ -20,9 +20,8 @@ import to.marcus.simple_dagger_test.model.ImageStorage;
 public class HomeFragment extends BaseFragment{
     GridView mGridView;
     ArrayList<Image> mImages;
-    ImageStorage imageStorage;
-    @Inject
-    ActivityTitleController titleController;
+    @Inject ActivityTitleController titleController;
+    @Inject ImagePresenter presenter;
 
     public static HomeFragment newInstance(){
         return new HomeFragment();
@@ -30,7 +29,8 @@ public class HomeFragment extends BaseFragment{
 
     @Override public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        //mImages = imageStorage.getImages();
+
+        //onclick triggers presenter.onImagesRequested()
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
