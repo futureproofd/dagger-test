@@ -7,9 +7,10 @@ package to.marcus.simple_dagger_test.modules;
  */
 
 public final class Modules{
-    public static Object[] list() {
+
+    public static Object[] list(String apiKey) {
         return new Object[] {
-                new ApplicationModule()
+            new ApplicationModule(apiKey)
         };
     }
 

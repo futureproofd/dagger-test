@@ -1,12 +1,10 @@
 package to.marcus.simple_dagger_test.modules;
 
+import com.squareup.otto.Bus;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import to.marcus.simple_dagger_test.event.MainBus;
-import to.marcus.simple_dagger_test.model.ImageStorage;
-import to.marcus.simple_dagger_test.presenter.ImagePresenter;
-import to.marcus.simple_dagger_test.ui.HomeActivity;
+import to.marcus.simple_dagger_test.ui.presenter.ImagePresenter;
 import to.marcus.simple_dagger_test.ui.HomeFragment;
 
 /**
@@ -19,8 +17,14 @@ import to.marcus.simple_dagger_test.ui.HomeFragment;
 )
 public class PresenterModule {
 
+    private final ImagePresenter.ImageView imageView;
+
+    public PresenterModule(ImagePresenter.ImageView imageView){
+        this.imageView = imageView;
+    }
+
     @Provides @Singleton
-    ImagePresenter provideImagePresenter(MainBus bus){
-        return new ImagePresenter(bus);
+    ImagePresenter provideImagePresenter(Bus bus){
+        return new ImagePresenter(bus, imageView);
     }
 }

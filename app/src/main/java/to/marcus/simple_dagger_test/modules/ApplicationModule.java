@@ -1,14 +1,15 @@
 package to.marcus.simple_dagger_test.modules;
 
 import android.content.Context;
+import com.squareup.otto.Bus;
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
+import retrofit.Endpoint;
+import retrofit.RestAdapter;
 import to.marcus.simple_dagger_test.BaseApplication;
-import to.marcus.simple_dagger_test.event.MainBus;
-import to.marcus.simple_dagger_test.network.EndPoint;
-import to.marcus.simple_dagger_test.network.GetWebTask;
-import to.marcus.simple_dagger_test.network.WebConnection;
+import to.marcus.simple_dagger_test.network.ApiEndpoint;
+import to.marcus.simple_dagger_test.network.ApiService;
 
 /**
  * A module for Android-specific dependencies which require a {@link Context} or
@@ -21,7 +22,10 @@ import to.marcus.simple_dagger_test.network.WebConnection;
 
 public class ApplicationModule {
 
-    public ApplicationModule() {
+    private final String apiKey;
+
+    public ApplicationModule(String apiKey) {
+        this.apiKey = apiKey;
     }
 
     /**
@@ -41,25 +45,23 @@ public class ApplicationModule {
 */
     @Provides
     @Singleton
-    public MainBus provideMainBus() {
-        return new MainBus();
+    public Bus provideBus() {
+        return new Bus();
     }
 
     @Provides
     @Singleton
-    public WebConnection provideConnection() {
-        return new WebConnection();
+    public ApiEndpoint provideEndPoint() {
+        return new ApiEndpoint();
     }
 
     @Provides
     @Singleton
-    public EndPoint provideEndPoint() {
-        return new EndPoint();
-    }
-
-    @Provides
-    @Singleton
-    public GetWebTask provideData(WebConnection httpConnection, EndPoint endPoint, MainBus bus) {
-        return new GetWebTask(httpConnection, endPoint, bus);
+    public ApiService provideApiService(ApiEndpoint endpoint){
+        return new RestAdapter.Builder()
+                .setEndpoint(endpoint)
+                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .build()
+                .create(ApiService.class);
     }
 }
