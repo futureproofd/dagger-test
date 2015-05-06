@@ -29,6 +29,14 @@ public class ImagePresenter{
         this.view = view;
     }
 
+    public void onResume(){
+        bus.register(this);
+    }
+
+    public void onPause(){
+        bus.unregister(this);
+    }
+
     public void onImagesRequested(String request){
         //view.showloadingIndicator  -- HomeFragment will implement our view interface and override this method
         Log.i(TAG, "Images Requested Event!");
@@ -36,9 +44,10 @@ public class ImagePresenter{
     }
 
     @Subscribe
-    public void onImagesArrayReceived(final ImagesReceivedEvent event){
+    public void onImagesArrayReceived(ImagesReceivedEvent event){
         Log.i(TAG, "array ready for presenter");
-        ArrayList<Photo> images = event.getResult();
+        //ArrayList<Photo> images = event.getResult();
+        view.displayImages(event.getResult());
     }
 
 }

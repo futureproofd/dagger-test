@@ -17,8 +17,5 @@ public class ImagesReceivedEvent {
         this.result = result;
     }
 
-    public ArrayList<Photo> getResult(){
-        Log.i(TAG, "get result called");
-        return result;
-    }
+    public ArrayList<Photo> getResult(){return result;}
 }

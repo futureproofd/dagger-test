@@ -10,9 +10,7 @@ public class ImageResponse {
     @Expose private Photos photos;
     @Expose private String stat;
 
-    public Photos getPhotosObject() {
-        return photos;
-    }
+    public Photos getPhotosObject(){return photos;}
 
     public void setPhotosObject(Photos photos) {
         this.photos = photos;

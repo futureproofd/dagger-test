@@ -66,9 +66,17 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
         return super.onOptionsItemSelected(item);
     }
 
-    @Override public void onResume(){
+    @Override
+    public void onResume(){
         super.onResume();
+        presenter.onResume();
         presenter.onImagesRequested("test");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        presenter.onPause();
     }
 
     public void setupAdapter(){
@@ -84,6 +92,7 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
 
     @Override
     public void displayImages(ArrayList<Photo> images) {
+        Log.i(TAG, "array received via presenter");
         this.mImages = images;
     }
 

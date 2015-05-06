@@ -3,15 +3,10 @@ package to.marcus.simple_dagger_test.event;
 import android.util.Log;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import to.marcus.simple_dagger_test.model.ImageResponse;
-import to.marcus.simple_dagger_test.model.Photos;
 import to.marcus.simple_dagger_test.network.ApiService;
 
 /**
@@ -41,14 +36,14 @@ public class ApiRequestHandler{
                 new Callback<ImageResponse>() {
                     @Override
                     public void success(ImageResponse imageResponse, Response response) {
-                        bus.post(new ImagesReceivedEvent( imageResponse.getPhotosObject().getPhotos()));
+                        bus.post(new ImagesReceivedEvent(imageResponse.getPhotosObject().getPhotos()));
                     }
 
                     @Override
                     public void failure(RetrofitError error) {
                         Log.e(TAG, " " + error.getUrl());
                         Log.e(TAG, " " + error.getMessage());
-                        bus.post(new HttpFailedEvent("failed :( "));
+                        bus.post(new ImagesFailedEvent("failed :( "));
                     }
                 });
     }
