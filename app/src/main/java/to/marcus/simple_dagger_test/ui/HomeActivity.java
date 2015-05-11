@@ -1,7 +1,6 @@
 package to.marcus.simple_dagger_test.ui;
 
 import android.os.Bundle;
-import java.util.ArrayList;
 import to.marcus.simple_dagger_test.BaseActivity;
 
 /**

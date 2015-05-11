@@ -2,7 +2,6 @@ package to.marcus.simple_dagger_test.model;
 
 import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by marcus on 27/04/15
@@ -20,6 +19,10 @@ public class Photos {
     public ArrayList<Photo> getPhotos(){return photo;}
 
     public class Photo {
+        @Override
+        public String toString(){
+            return title;
+        }
         @Expose private String id;
         @Expose private String owner;
         @Expose private String secret;

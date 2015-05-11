@@ -1,7 +1,6 @@
 package to.marcus.simple_dagger_test.ui.presenter;
 
 import android.util.Log;
-
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 import java.util.ArrayList;

@@ -17,6 +17,7 @@ import to.marcus.simple_dagger_test.BaseFragment;
 import to.marcus.simple_dagger_test.R;
 import to.marcus.simple_dagger_test.model.Photos.Photo;
 import to.marcus.simple_dagger_test.modules.PresenterModule;
+import to.marcus.simple_dagger_test.ui.adapter.PhotoAdapter;
 import to.marcus.simple_dagger_test.ui.presenter.ImagePresenter;
 
 /**
@@ -37,6 +38,7 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
         super.onCreate(savedInstanceState);
         BaseApplication.get(getActivity()).createScopedGraph(new PresenterModule(this)).inject(this);
         setHasOptionsMenu(true);
+        presenter.onImagesRequested("test");
     }
 
     @Override
@@ -44,7 +46,6 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
                                 Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_grid_layout, container, false);
         mGridView = (GridView)v.findViewById(R.id.gridView);
-        setupAdapter();
         return v;
     }
 
@@ -59,7 +60,7 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
         switch (item.getItemId()){
             case R.id.refresh:
                 Log.i(TAG, "clicked to get images!");
-                //presenter.onImagesRequested("test");
+                presenter.onImagesRequested("test");
                 return true;
         }
         Log.i(TAG, "didn't get shit");
@@ -69,8 +70,8 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
     @Override
     public void onResume(){
         super.onResume();
+        //get bus
         presenter.onResume();
-        presenter.onImagesRequested("test");
     }
 
     @Override
@@ -81,10 +82,8 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
 
     public void setupAdapter(){
         if(getActivity() == null || mGridView == null) return;
-
         if (mImages != null){
-            mGridView.setAdapter(new ArrayAdapter<Photo>(getActivity(),
-                    android.R.layout.simple_gallery_item, mImages));
+            mGridView.setAdapter(new PhotoAdapter(getActivity(), mImages));
         }else{
             mGridView.setAdapter(null);
         }
@@ -94,6 +93,7 @@ public class HomeFragment extends BaseFragment implements ImagePresenter.ImageVi
     public void displayImages(ArrayList<Photo> images) {
         Log.i(TAG, "array received via presenter");
         this.mImages = images;
+        setupAdapter();
     }
 
     //showloadingindicator()
